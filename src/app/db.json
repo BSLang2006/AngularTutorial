@@ -6,7 +6,7 @@
     },
     {
       "id": 17,
-      "name": "Freezer"
+      "name": "Freezer Burn Joe"
     },
     {
       "id": 18,
@@ -17,7 +17,7 @@
       "name": "Produce"
     },
     {
-      "name": "Meat",
+      "name": "Meat Treat",
       "id": 20
     },
     {
@@ -33,7 +33,7 @@
       "id": 23
     },
     {
-      "name": "3 oz filet",
+      "name": "29 oz filet",
       "id": 24
     },
     {
@@ -43,6 +43,10 @@
     {
       "name": "Sunshine Suzy",
       "id": 26
+    },
+    {
+      "name": "Still Trying",
+      "id": 27
     }
   ]
 }

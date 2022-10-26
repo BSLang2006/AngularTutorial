@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Hero } from 'src/hero';
-import { HEROES } from './mock-heroes';
-import { Observable, of } from 'rxjs';
-import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+
+import { Hero } from 'src/hero';
+import { MessageService } from './message.service';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
+
 private heroesUrl = '//localhost:3000/items';
+
 httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -18,6 +23,14 @@ httpOptions = {
 constructor(
   private http: HttpClient,
   private messageService: MessageService) { }
+
+
+test(hero: Hero): Observable<any> {
+  return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+    tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateHero'))
+  );
+}
 
 /** GET heroes from the server */
 getHeroes(): Observable<Hero[]> {
@@ -86,12 +99,15 @@ deleteHero(id: number): Observable<Hero> {
 }
 
 /** PUT: update the hero on the server */
-updateHero(hero: Hero): Observable<any> {
-  return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
+  updateHero(hero: Hero): Observable<any> {
+      const url = `${this.heroesUrl}/${hero.id}`;
+      return this.http.put(url, hero, this.httpOptions).pipe(
     tap(_ => this.log(`updated hero id=${hero.id}`)),
     catchError(this.handleError<any>('updateHero'))
   );
 }
+
+
 
 /**
  * Handle Http operation that failed.

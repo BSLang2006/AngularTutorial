@@ -36,13 +36,16 @@ export class HeroDetailComponent implements OnInit {
   }
 
   test(): void {
-    console.log(this.hero)
-  }
+    if (this.hero)  {
+    this.heroService.updateHero(this.hero).subscribe()
+  }}
 
   save(): void {
     if (this.hero) {
       this.heroService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
+        .subscribe();
     }
   }
 }
+
+//() => this.goBack()
