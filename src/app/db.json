@@ -1,52 +1,70 @@
 {
-  "items": [
+  "categories": [
     {
-      "id": 11,
-      "name": "Beer"
+      "name": "Food",
+      "id": 1
     },
     {
-      "id": 17,
-      "name": "Freezer Burn Joe"
+      "name": "Liquor",
+      "id": 2
     },
     {
-      "id": 18,
-      "name": "Dairy"
+      "name": "Beer",
+      "id": 3
     },
     {
-      "id": 19,
-      "name": "Produce"
+      "name": "Wine",
+      "id": 4
     },
     {
-      "name": "Meat Treat",
-      "id": 20
+      "name": "Non-Alcholic",
+      "id": 5
     },
     {
-      "name": "TurtlFace",
-      "id": 21
+      "name": "Dry-Goods",
+      "id": 6
     },
     {
-      "name": "gentle giant",
-      "id": 22
+      "name": "First One",
+      "id": 7
     },
     {
-      "name": "Tough Banana's",
-      "id": 23
+      "name": "Second One",
+      "id": 8
     },
     {
-      "name": "29 oz filet",
-      "id": 24
+      "name": "Third",
+      "id": 9
+    }
+  ],
+  "todo": [
+    {
+      "name": "Complete List",
+      "id": 1
     },
     {
-      "name": "Bad Man",
-      "id": 25
+      "name": "Color of background",
+      "id": 2
     },
     {
-      "name": "Sunshine Suzy",
-      "id": 26
+      "name": "Beer",
+      "id": 3
     },
     {
-      "name": "Still Trying",
-      "id": 27
+      "name": "Wine",
+      "id": 4
+    },
+    {
+      "name": "Non-Alcholic",
+      "id": 5
+    },
+    {
+      "name": "Dry-Goods",
+      "id": 6
+    },
+    {
+      "name": "First One",
+      "id": 7
     }
   ]
 }

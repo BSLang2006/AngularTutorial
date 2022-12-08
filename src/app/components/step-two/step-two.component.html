@@ -1,0 +1,30 @@
+<app-build-server></app-build-server>
+<h2>Step Two: Display item details</h2>
+
+<ol>
+    <li>Add click event binding to the item button</li>
+    <li>Create property to hold the selected item</li>
+    <li>Add the event handler - write logic</li>
+</ol>
+
+<h2>Categories</h2>
+<ul class="categories">
+  <li *ngFor="let category of categories">
+    <button type="button" (click)="onSelect(category)">
+      <span class="badge">{{category.id}}</span>
+      <span class="name">{{category.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<div *ngIf="selectedCategory">
+    <h2>{{selectedCategory.name | uppercase}} Details: </h2>
+    <div>id: {{ selectedCategory.id }}</div>
+<div>
+    <label for="category-name">Category Name: </label>
+    <input id="category-name" [(ngModel)]="selectedCategory.name" placeholder="name">
+</div>
+</div>
+<hr>
+<p>Now when a button is clicked the details are shown</p>
+<p>It also has two way binding set up, it is not persistent yet</p>

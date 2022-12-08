@@ -19,3 +19,8 @@ h1 {
   nav a:active {
     background-color: black;
   }
+
+body {
+  width: 580px;
+  background-color: #c22b2b;
+}

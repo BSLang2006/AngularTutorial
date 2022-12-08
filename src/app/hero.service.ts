@@ -6,6 +6,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from 'src/hero';
 import { MessageService } from './message.service';
+import { Category } from './category';
+import { ToDo } from 'src/toDo';
 
 
 
@@ -15,6 +17,8 @@ import { MessageService } from './message.service';
 export class HeroService {
 
 private heroesUrl = '//localhost:3000/items';
+private catUrl ='//localhost:3000/categories';
+private toDoUrl ='//localhost:3000/todo';
 
 httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -39,6 +43,14 @@ getHeroes(): Observable<Hero[]> {
       tap(_ => this.log('fetched heroes')),
       catchError(this.handleError<Hero[]>('getHeroes', []))
     );
+}
+
+getCategories(): Observable<Category[]> {
+  return this.http.get<Category[]>(this.catUrl);
+}
+
+getToDo(): Observable<ToDo[]> {
+  return this.http.get<ToDo[]>(this.toDoUrl);
 }
 
 /** GET hero by id. Return `undefined` when id not found */
@@ -88,6 +100,10 @@ addHero(hero: Hero): Observable<Hero> {
   );
 }
 
+addCategory(category: Category): Observable<Category> {
+  return this.http.post<Category>(this.catUrl, category, this.httpOptions)
+}
+
 /** DELETE: delete the hero from the server */
 deleteHero(id: number): Observable<Hero> {
   const url = `${this.heroesUrl}/${id}`;
@@ -95,6 +111,14 @@ deleteHero(id: number): Observable<Hero> {
   return this.http.delete<Hero>(url, this.httpOptions).pipe(
     tap(_ => this.log(`deleted hero id=${id}`)),
     catchError(this.handleError<Hero>('deleteHero'))
+  );
+}
+deleteCategory(id: number): Observable<Category> {
+  const url = `${this.heroesUrl}/${id}`;
+
+  return this.http.delete<Category>(url, this.httpOptions).pipe(
+    tap(_ => this.log(`deleted category id=${id}`)),
+    catchError(this.handleError<Category>('deleteCategory'))
   );
 }
 

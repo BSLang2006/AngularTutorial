@@ -1,23 +1,37 @@
-<h2>My Heroes</h2>
+<h2>All Items</h2>
 
 <div>
-  <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
-  <label for="new-hero-id">Hero id: </label>
-  <input id="new-hero-id" #heroName />
-
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
-    Add hero
-  </button>
+  <label for="new-item">Item name: </label>
+  <input id="new-item" #itemName />
+  <label for="new-item">Item Category:</label>
+  <input id="new-item" #itemId />
 </div>
+<div class="dropdown">
+  <button> Dropdown Testing</button>
+  <label for="categories">Category</label>
+  <select name="categoryDropDown" id="categories">
+    <!--<option value="rigatoni">Rigatoni</option>
+    <option value="dave">Dave</option>
+    <option value="pumpernickel" selected>Pumpernickel</option>
+    /-->
+    <option *ngFor="let category of categories"></option>
+  </select>
+</div>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" 
+  (click)="add(itemName.value, itemId.value); itemName.value=''">
+    Add Item
+  </button>
+
+
+<h2>All Items:</h2>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let category of categories">
+    <a routerLink="/detail/{{category.id}}">
+      <span class="badge">{{category.id}}</span> {{category.name}}
     </a>
     <button type="button" class="delete" title="delete hero"
-      (click)="delete(hero)">x</button>
+      (click)="delete(category)">  x  </button> 
   </li>
 </ul>

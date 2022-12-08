@@ -1,0 +1,23 @@
+<h2>To Do List</h2>
+
+<div>
+  <label for="new-task">Task: </label>
+  <input id="new-task" #taskName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(taskName.value); taskName.value=''">
+    Add Task
+  </button>
+</div>
+
+<h2>All Tasks:</h2>
+
+<ul class="task">
+  <li *ngFor="let toDo of toDo">
+    
+       {{toDo.name}}
+    
+    <button type="button" class="delete" title="delete task"
+     (click)="delete(toDo)">  x  </button> 
+  </li>
+</ul>

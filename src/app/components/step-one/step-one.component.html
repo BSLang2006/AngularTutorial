@@ -1,0 +1,24 @@
+<app-build-server></app-build-server>
+
+<h2>Step One: Display list from local database</h2>
+
+<ol>
+    <li>Properties: category(array)</li>
+    <li>Import interface</li>
+    <li>Define component property to expose the array for binding(categories = CATEGORY)</li>
+    <li>In the first li element use *ngFor="let category of categories"</li>
+</ol>
+<p></p>
+
+<h2>Categories</h2>
+<ul class="categories">
+  <li *ngFor="let category of categories">
+    <button type="button">
+      <span class="badge">{{category.id}}</span>
+      <span class="name">{{category.name}}</span>
+    </button>
+  </li>
+</ul>
+
+<hr>
+<p>The above is a list of buttons with no functionality</p>
